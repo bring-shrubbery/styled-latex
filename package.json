@@ -8,8 +8,14 @@
   },
   "keywords": [
     "latex",
-    "styled-components"
+    "styled"
   ],
   "author": "Antoni Silvestrovic <antoni.silvestrovic@gmail.com> (https://antoni.ai)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "styled-components": "^5.2.3"
+  },
+  "devDependencies": {
+    "@types/styled-components": "^5.1.9"
+  }
 }
