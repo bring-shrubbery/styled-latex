@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const LatexContainer = styled.div`
   max-width: 80ch;
   min-height: 100vh;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   margin: 0 auto;
   padding: 2rem 1.25rem;
 

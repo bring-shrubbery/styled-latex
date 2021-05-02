@@ -24,6 +24,7 @@ export const Paragraph = styled.p<ParagraphProps>`
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
   margin-top: 1rem;
+
   ${typography}
   ${space}
   ${color}

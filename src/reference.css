@@ -25,38 +25,6 @@ textarea {
   width: 100%;
 }
 
-/* Natural flow and rhythm in articles by default */
-article > * + * {
-  margin-top: 1em;
-}
-
-/* Styles for inline code or code snippets */
-code,
-pre,
-kbd {
-  font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
-    monospace;
-  font-size: 85%;
-}
-pre {
-  padding: 1rem 1.4rem;
-  max-width: 100%;
-  overflow: auto;
-  border-radius: 4px;
-  background: hsl(210, 28%, 93%);
-}
-pre code {
-  font-size: 95%;
-  position: relative;
-}
-kbd {
-  background: hsl(210, 5%, 100%);
-  border: 1px solid hsl(210, 5%, 70%);
-  border-radius: 2px;
-  padding: 2px 4px;
-  font-size: 75%;
-}
-
 /* Better tables */
 table {
   border-collapse: collapse;
@@ -119,112 +87,13 @@ caption::before {
   white-space: nowrap;
 }
 
-/* Nested ordered list for ToC */
-nav ol {
-  counter-reset: item;
-  padding-left: 2rem;
-}
-nav li {
-  display: block;
-}
-nav li:before {
-  content: counters(item, '.') ' ';
-  counter-increment: item;
-  padding-right: 0.85rem;
-}
-
 /* Center definitions (most useful for display equations) */
 dl dd {
   text-align: center;
 }
 
-/* Theorem */
-.theorem {
-  counter-increment: theorem;
-  display: block;
-  margin: 12px 0;
-  font-style: italic;
-}
-.theorem::before {
-  content: 'Theorem ' counter(theorem) '. ';
-  font-weight: bold;
-  font-style: normal;
-}
-
-/* Lemma */
-.lemma {
-  counter-increment: theorem;
-  display: block;
-  margin: 12px 0;
-  font-style: italic;
-}
-.lemma::before {
-  content: 'Lemma ' counter(theorem) '. ';
-  font-weight: bold;
-  font-style: normal;
-}
-
-/* Proof */
-.proof {
-  display: block;
-  margin: 12px 0;
-  font-style: normal;
-  position: relative;
-}
-.proof::before {
-  content: 'Proof. ' attr(title);
-  font-style: italic;
-}
-.proof:after {
-  content: '◾️';
-  position: absolute;
-  right: -12px;
-  bottom: -2px;
-}
-
-/* Definition */
-.definition {
-  counter-increment: definition;
-  display: block;
-  margin: 12px 0;
-  font-style: normal;
-}
-.definition::before {
-  content: 'Definition ' counter(definition) '. ';
-  font-weight: bold;
-  font-style: normal;
-}
-
-/* Center align author name, use small caps and add vertical spacing  */
-.author {
-  margin: 0.85rem 0;
-  font-variant-caps: small-caps;
-  text-align: center;
-}
-
 /* Sidenotes */
 
-.sidenote {
-  font-size: 0.8rem;
-  float: right;
-  clear: right;
-  width: 18vw;
-  margin-right: -20vw;
-  margin-bottom: 1em;
-}
-
-.sidenote.left {
-  float: left;
-  margin-left: -20vw;
-  margin-bottom: 1em;
-}
-
-/* (WIP) add border when a sidenote is clicked on */
-.sidenote:target {
-  border: hsl(55, 55%, 70%) 1.5px solid;
-  padding: 0 .5rem;
-  scroll-margin-block-start: 10rem;
-}
 
 /* sidenote counter */
 .sidenote-number {
@@ -261,7 +130,6 @@ blockquote .sidenote {
   margin-right: -24vw;
   width: 18vw;
 }
-
 
 label.sidenote-toggle {
   display: inline;
@@ -303,36 +171,4 @@ input.sidenote-toggle {
 }
 .footnotes {
   border-top: 1px solid hsl(0, 0%, 39%);
-}
-
-/* Center title and paragraph */
-.abstract,
-.abstract p {
-  text-align: center;
-  margin-top: 0;
-}
-.abstract {
-  margin: 2.25rem 0;
-}
-.abstract > h2 {
-  font-size: 1rem;
-  margin-bottom: -0.2rem;
-}
-
-/* Format the LaTeX symbol correctly (a higher up, e lower) */
-.latex span:nth-child(1) {
-  text-transform: uppercase;
-  font-size: 0.75em;
-  vertical-align: 0.28em;
-  margin-left: -0.48em;
-  margin-right: -0.15em;
-  line-height: 1ex;
-}
-
-.latex span:nth-child(2) {
-  text-transform: uppercase;
-  vertical-align: -0.5ex;
-  margin-left: -0.1667em;
-  margin-right: -0.125em;
-  line-height: 1ex;
 }

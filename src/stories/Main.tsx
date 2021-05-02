@@ -1,21 +1,29 @@
 import React from 'react';
 
-import {GlobalLatexStyles, LatexFonts} from '../components/global';
+import {Abstract} from '../components/abstract';
+import {Article} from '../components/article';
+import {Code} from '../components/code';
+import {GlobalLatexStyles, LatexDefaultFonts} from '../components/global';
 import {H1, H2, H3, H4} from '../components/headings';
-import {Paragraph} from '../components/paragraph';
+import {Latex} from '../components/latex';
 import {LatexContainer} from '../components/layout';
 import {Link} from '../components/link';
+import {Paragraph} from '../components/paragraph';
+import {TableOfContents} from '../components/tableOfContents';
+import {Theorem} from '../components/theorem';
+import {Definition} from '../components/definition';
+import {Lemma} from '../components/lemma';
+import {Proof} from '../components/proof';
+import {Sidenote, SidenoteReference} from '../components/sidenote';
 
 export const MainExampleComponent = () => {
   return (
     <LatexContainer>
       <GlobalLatexStyles />
-      <LatexFonts />
+      <LatexDefaultFonts />
       <header>
         <H1>
-          <span className="latex">
-            L<span>a</span>T<span>e</span>X
-          </span>
+          <Latex />
           .css
         </H1>
         <Paragraph author>
@@ -24,29 +32,30 @@ export const MainExampleComponent = () => {
         </Paragraph>
       </header>
 
-      <div className="abstract">
+      <Abstract>
         <H2>Abstract</H2>
         <Paragraph>
-          This almost className-less CSS library turns your HTML document into a
-          website that looks like a
-          <span className="latex">
-            L<span>a</span>T<span>e</span>X
-          </span>
-          document. Write semantic HTML, add
-          <code className="language-html">
-            &lt;link rel="stylesheet" href="https://latex.now.sh/style.css"&gt;
-          </code>
-          to the <code className="language-html">&lt;head&gt;</code> of your
-          project and you are good to go. The source code can be found on GitHub
-          at
+          {
+            'This almost className-less CSS library turns your HTML document into a website that looks like a '
+          }
+          <Latex />
+          {' document. Write semantic HTML, add '}
+          <Code>
+            {'<link rel="stylesheet" href="https://latex.now.sh/style.css">'}
+          </Code>
+          {' to the '}
+          <Code className="language-html">{'<head>'}</Code>
+          {
+            ' of your project and you are good to go. The source code can be found on GitHub at '
+          }
           <Link href="https://github.com/vincentdoerig/latex-css">
             https://github.com/vincentdoerig/latex-css
           </Link>
           .
         </Paragraph>
-      </div>
+      </Abstract>
 
-      <nav role="navigation" className="toc">
+      <TableOfContents role="navigation" className="toc">
         <H2>Contents</H2>
         <ol>
           <li>
@@ -115,52 +124,46 @@ export const MainExampleComponent = () => {
             </ol>
           </li>
         </ol>
-      </nav>
+      </TableOfContents>
 
       <main>
-        <article>
+        <Article>
           <H2 id="getting-started">Getting Started</H2>
           <ul>
             <li>
               Add
-              <code className="language-html">
-                &lt;link rel="stylesheet"
-                href="https://latex.now.sh/style.css"&gt;
-              </code>
-              to the <code className="language-html">&lt;head&gt;</code> of your
+              <Code className="language-html">
+                {
+                  '<link rel="stylesheet" href="https://latex.now.sh/style.css">'
+                }
+              </Code>{' '}
+              to the <Code className="language-html">{'<head>'}</Code> of your
               website or install the package using{' '}
-              <code>npm install latex.css</code>.
+              <Code>npm install latex.css</Code>.
             </li>
             <li>
-              (optional) Add any classes to elements described in the
+              (optional) Add any classes to elements described in the{' '}
               <Link href="#className-based-elements">next section</Link>.
             </li>
             <li>
-              (optional) If you need support for
-              <span className="latex">
-                L<span>a</span>T<span>e</span>X
-              </span>{' '}
-              math, add the following script to include
+              (optional) If you need support for <Latex /> math, add the
+              following script to include{' '}
               <Link href="https://www.mathjax.org/">MathJax</Link>:
-              <pre>
-                <code className="language-html">
-                  &lt;script id="MathJax-script" async
-                  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"&gt;&lt;/script&gt;
-                </code>
-              </pre>
+              <Code className="language-html" multiline>
+                {
+                  '<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>'
+                }
+              </Code>
             </li>
             <li>
               (optional) If you need syntax highlighting, add the following
-              script to include
-              <Link href="https://prismjs.com/">Prism</Link> and the Prism LaTeX
-              stylesheet (or use any other):
-              <pre>
-                <code className="language-html">
-                  &lt;link rel="stylesheet"
-                  href="https://latex.now.sh/prism/prism.css"&gt; &lt;script
-                  src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"&gt;&lt;/script&gt;
-                </code>
-              </pre>
+              script to include <Link href="https://prismjs.com/">Prism</Link>{' '}
+              and the Prism LaTeX stylesheet (or use any other):
+              <Code className="language-html" multiline>
+                {
+                  '<link rel="stylesheet" href="https://latex.now.sh/prism/prism.css">\n<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>'
+                }
+              </Code>
             </li>
             <li>Done.</li>
           </ul>
@@ -171,13 +174,11 @@ export const MainExampleComponent = () => {
             Use the following code to add an author and abstract to your
             document. It will look like <Link href="#top">this</Link>.
           </Paragraph>
-          <pre>
-            <code className="language-html">
-              &lt;p className="author"&gt;John Doe &lt;br&gt; December 7,
-              2020&lt;/Paragraph&gt; &lt;div className="abstract"&gt;
-              &lt;H2&gt;Abstract&lt;/H2&gt; &lt;p&gt;...&lt;/p&gt; &lt;/div&gt;
-            </code>
-          </pre>
+          <Code className="language-html" multiline>
+            {
+              '<p className="author">John Doe <br> December 7, 2020</p>\n\n<div className="abstract">\n  <h2>Abstract</h2>\n  <p>...</p>\n</div>'
+            }
+          </Code>
 
           <H3 id="tdpl">Theorems, Definitions, Lemmas and Proofs</H3>
           <Paragraph>
@@ -186,25 +187,21 @@ export const MainExampleComponent = () => {
             element like in the following example.
           </Paragraph>
 
-          <pre>
-            <code className="language-html">
-              &lt;div className="theorem"&gt;...&lt;/div&gt; &lt;div
-              className="definition"&gt;...&lt;/div&gt; &lt;div
-              className="lemma"&gt;...&lt;/div&gt; &lt;div
-              className="proof"&gt;...&lt;/div&gt;
-            </code>
-          </pre>
+          <Code className="language-html" multiline>
+            &lt;div className="theorem"&gt;...&lt;/div&gt; &lt;div
+            className="definition"&gt;...&lt;/div&gt; &lt;div
+            className="lemma"&gt;...&lt;/div&gt; &lt;div
+            className="proof"&gt;...&lt;/div&gt;
+          </Code>
           <Paragraph>Below are some examples.</Paragraph>
           <H4 id="proofs-theorems">Proofs & Theorems</H4>
-          <div className="theorem">
-            {'The real numbers $mathbb{R}$ are uncountable.'}
-          </div>
-          <div className="proof">
+          <Theorem>{'The real numbers $mathbb{R}$ are uncountable.'}</Theorem>
+          <Proof>
             {
               'If $mathbb{R}$ is countable, then [0, 1] is countable as well. Hence there exists a map C from $mathbb{N}$ onto [0, 1] with $$C(n)=sum_{i=1}^{infty} c_{i}(n) 10^{-i}$$ where $c_{i}(n) in{0,1, ldots, 9},$ are the digits in decimal expansion. Now consider a real number $$x=sum_{i=1}^{infty} \bar{c}_{i} 10^{-i} in[0,1]$$ with $\bar{c}_{i} \neq c_{i}(i)$. Obviously $C(n) \neq x$ for all $n in mathbb{N} .$ Hence $C$ is not onto. A contradiction.'
             }
-          </div>
-          <div className="theorem">
+          </Proof>
+          <Theorem>
             {
               'If $S$ is both countable and infinite, then there is a bijection between $S$ and $\boldsymbol{N}$ itself.'
             }
@@ -213,21 +210,21 @@ export const MainExampleComponent = () => {
                 1
               </Link>
             </sup>
-          </div>
-          <div className="proof">
+          </Theorem>
+          <Proof>
             For any $s \in S,$ we let $f(s)$ denote the value of $k$ such that
             $s$ is the $k$ the smallest element of $S .$ This map is well
             defined for any $s,$ because there are only finitely many natural
             numbers between 1 and $s .$ It is impossible for two different
             elements of $S$ to both be the $k$ the smallest element of $S$.
             Hence $f$ is one-to-one. Also, since $S$ is infinite, $f$ is onto.
-          </div>
+          </Proof>
           <H4 id="lemmas">Lemmas</H4>
-          <div className="lemma">
+          <Lemma>
             An even number plus an even number results in an even number.
-          </div>
+          </Lemma>
           <H4 id="definitions">Definitions</H4>
-          <div className="definition">
+          <Definition>
             A definition is a a statement of the meaning of a word or word group
             or a sign or symbol.
             <sup>
@@ -235,7 +232,7 @@ export const MainExampleComponent = () => {
                 2
               </Link>
             </sup>
-          </div>
+          </Definition>
 
           <H2 id="language-support">Language Support</H2>
           <Paragraph>
@@ -247,12 +244,10 @@ export const MainExampleComponent = () => {
             by including the following snippet, linking to the desired language
             in addition to the main CSS file.
           </Paragraph>
-          <pre>
-            <code className="language-html">
-              &lt;link rel="stylesheet" href="https://latex.now.sh/lang/es.css"
-              /&gt; ... &lt;html lang="es"&gt;
-            </code>
-          </pre>
+          <Code className="language-html" multiline>
+            &lt;link rel="stylesheet" href="https://latex.now.sh/lang/es.css"
+            /&gt; ... &lt;html lang="es"&gt;
+          </Code>
           <Paragraph>
             Take a peek at the{' '}
             <Link href="/languages">language support demo</Link> to see how the
@@ -264,16 +259,12 @@ export const MainExampleComponent = () => {
             Sidenotes can be used as an alternative to footnotes, where the user
             does not have to jump to the bottom of the page to read it. On
             mobile, click the superscript to reveal the note
-            <label
-              htmlFor="sn-1"
-              className="sidenote-toggle sidenote-number"
-            ></label>
-            <input type="checkbox" id="sn-1" className="sidenote-toggle" />
-            <span className="sidenote">
+            <SidenoteReference id="sn-1" />
+            <Sidenote position="right">
               Yay, sidenotes!. If you are on mobile, I will appear inline. If
               you are using a larger screen, the sidenote will appear to the
-              right of the text.
-            </span>
+              right of the text
+            </Sidenote>
             .
           </Paragraph>
 
@@ -282,20 +273,18 @@ export const MainExampleComponent = () => {
             label, an invisible checkbox on top of the number and a span with
             the text inside. The superscript is set automatically and
             incremented using CSS when the checkbox has a className of{' '}
-            <code>sidenote-number</code>.
+            <Code>sidenote-number</Code>.
           </Paragraph>
-          <pre>
-            <code className="language-html">
-              {
-                '&lt;label for="sn-1" className="sidenote-toggle sidenote-number"&gt;&lt;/label&gt; &lt;input type="checkbox" id="sn-1" className="sidenote-toggle" /&gt; &lt;span className="sidenote"&gt;&lt;!-- sidenote content --&gt;&lt;/span&gt;'
-              }
-            </code>
-          </pre>
+          <Code className="language-html" multiline>
+            {
+              '&lt;label for="sn-1" className="sidenote-toggle sidenote-number"&gt;&lt;/label&gt; &lt;input type="checkbox" id="sn-1" className="sidenote-toggle" /&gt; &lt;span className="sidenote"&gt;&lt;!-- sidenote content --&gt;&lt;/span&gt;'
+            }
+          </Code>
           <Paragraph>
             If you do not need superscripted numbers, you can opt out of the{' '}
-            <code>sidenote-number</code> className and the sidenote will not
+            <Code>sidenote-number</Code> className and the sidenote will not
             have a number assigned. On a smaller screen, you will need to add a
-            symbol inside the <code>label</code> for the user to click on.{' '}
+            symbol inside the <Code>label</Code> for the user to click on.{' '}
             <label htmlFor="sn-plus" className="sidenote-toggle">
               ⊕
             </label>
@@ -307,13 +296,11 @@ export const MainExampleComponent = () => {
           <Paragraph>
             The snippet for a sidenote without a number is very similar:
           </Paragraph>
-          <pre>
-            <code className="language-html">
-              {
-                '&lt;label for="sn-anything" className="sidenote-toggle"&gt;⊕&lt;/label&gt; &lt;input type="checkbox" id="sn-anything" className="sidenote-toggle" /&gt; &lt;span className="sidenote"&gt;&lt;!-- sidenote content --&gt;&lt;/span&gt;'
-              }
-            </code>
-          </pre>
+          <Code className="language-html" multiline>
+            {
+              '&lt;label for="sn-anything" className="sidenote-toggle"&gt;⊕&lt;/label&gt; &lt;input type="checkbox" id="sn-anything" className="sidenote-toggle" /&gt; &lt;span className="sidenote"&gt;&lt;!-- sidenote content --&gt;&lt;/span&gt;'
+            }
+          </Code>
           <label htmlFor="sn-plus" className="sidenote-toggle">
             <Link href="#sn-plus-content">⊕</Link>
           </label>
@@ -322,8 +309,8 @@ export const MainExampleComponent = () => {
             This is a sidenote without a number.
           </span>
           <Paragraph>
-            Add a className of <code>left</code> to the span with the{' '}
-            <code>sidenote</code> className to make the note appear on the left
+            Add a className of <Code>left</Code> to the span with the{' '}
+            <Code>sidenote</Code> className to make the note appear on the left
             side of the page on instead of right.
           </Paragraph>
           <Paragraph>
@@ -348,16 +335,13 @@ export const MainExampleComponent = () => {
 
           <H2 id="alternative-typeface">Alternative Typeface</H2>
           <Paragraph>
-            <span className="latex">
-              L<span>a</span>T<span>e</span>X
-            </span>
-            .css uses Latin Modern by default. If you don't like this typeface
-            (hard to read, too thin, etc.), you can switch to the{' '}
+            <Latex /> .css uses Latin Modern by default. If you don't like this
+            typeface (hard to read, too thin, etc.), you can switch to the{' '}
             <Link href="https://github.com/alerque/libertinus">
-              <code>Libertinus</code>
+              <Code>Libertinus</Code>
             </Link>{' '}
-            font family by adding a className of <code>libertinus</code> to the{' '}
-            <code className="language-html">&lt;body&gt;</code> tag. Click the
+            font family by adding a className of <Code>libertinus</Code> to the{' '}
+            <Code className="language-html">&lt;body&gt;</Code> tag. Click the
             button below to switch between Latin Modern and Libertinus.
           </Paragraph>
 
@@ -500,13 +484,13 @@ export const MainExampleComponent = () => {
                     Teal
                   </th>
                   <td>
-                    <code>#008080</code>
+                    <Code>#008080</Code>
                   </td>
                   <td>
-                    <code>hsl(180, 100%, 25%)</code>
+                    <Code>hsl(180, 100%, 25%)</Code>
                   </td>
                   <td>
-                    <code>rgb(0, 128, 128)</code>
+                    <Code>rgb(0, 128, 128)</Code>
                   </td>
                 </tr>
                 <tr>
@@ -514,13 +498,13 @@ export const MainExampleComponent = () => {
                     Goldenrod
                   </th>
                   <td>
-                    <code>#daa520</code>
+                    <Code>#daa520</Code>
                   </td>
                   <td>
-                    <code>hsl(43, 74%, 49%)</code>
+                    <Code>hsl(43, 74%, 49%)</Code>
                   </td>
                   <td>
-                    <code>rgb(218, 165, 32)</code>
+                    <Code>rgb(218, 165, 32)</Code>
                   </td>
                 </tr>
                 <tr>
@@ -528,13 +512,13 @@ export const MainExampleComponent = () => {
                     Cornflowerblue
                   </th>
                   <td>
-                    <code>#6495ed</code>
+                    <Code>#6495ed</Code>
                   </td>
                   <td>
-                    <code>hsl(219, 79%, 66%)</code>
+                    <Code>hsl(219, 79%, 66%)</Code>
                   </td>
                   <td>
-                    <code>rgb(100, 149, 237)</code>
+                    <Code>rgb(100, 149, 237)</Code>
                   </td>
                 </tr>
                 <tr>
@@ -542,13 +526,13 @@ export const MainExampleComponent = () => {
                     Lightcoral
                   </th>
                   <td>
-                    <code>#f08080</code>
+                    <Code>#f08080</Code>
                   </td>
                   <td>
-                    <code>hsl(0, 79%, 72%)</code>
+                    <Code>hsl(0, 79%, 72%)</Code>
                   </td>
                   <td>
-                    <code>rgb(240, 128, 128)</code>
+                    <Code>rgb(240, 128, 128)</Code>
                   </td>
                 </tr>
               </tbody>
@@ -576,7 +560,7 @@ export const MainExampleComponent = () => {
           <Paragraph>
             It is best to break up long equations into smaller parts, but when
             this isn't possible, consider wrapping the overflowing element with
-            a className of <code>scroll-overflow</code> to allow scrolling on
+            a className of <Code>scroll-overflow</Code> to allow scrolling on
             the x-axis. Large tables should also be wrapped with this className.
           </Paragraph>
           <Paragraph>
@@ -596,20 +580,16 @@ export const MainExampleComponent = () => {
             <Link href="https://github.com/gpoore/minted">minted</Link> package
             for LaTeX. Add the following stylesheet and script:
           </Paragraph>
-          <pre>
-            <code className="language-html">
-              &lt;link rel="stylesheet"
-              href="https://latex.now.sh/prism/prism.css"&gt; &lt;script
-              src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"&gt;&lt;/script&gt;
-            </code>
-          </pre>
+          <Code className="language-html" multiline>
+            &lt;link rel="stylesheet"
+            href="https://latex.now.sh/prism/prism.css"&gt; &lt;script
+            src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"&gt;&lt;/script&gt;
+          </Code>
           <Paragraph>And use it like this:</Paragraph>
-          <pre>
-            <code className="language-html">
-              &lt;pre&gt; &lt;code className="language-html"&gt; &lt;!-- your
-              HTML code snippet --&gt; &lt;/code&gt; &lt;/pre&gt;
-            </code>
-          </pre>
+          <Code className="language-html" multiline>
+            &lt;pre&gt; &lt;code className="language-html"&gt; &lt;!-- your HTML
+            code snippet --&gt; &lt;/code&gt; &lt;/pre&gt;
+          </Code>
           <Paragraph>
             Change which languages Prism highlights by customising the script{' '}
             <Link href="https://prismjs.com/download.html">here</Link>.
@@ -637,7 +617,7 @@ export const MainExampleComponent = () => {
               </Link>
             </Paragraph>
           </div>
-        </article>
+        </Article>
       </main>
     </LatexContainer>
   );
