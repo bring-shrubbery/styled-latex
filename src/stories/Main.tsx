@@ -15,6 +15,7 @@ import {Definition} from '../components/definition';
 import {Lemma} from '../components/lemma';
 import {Proof} from '../components/proof';
 import {Sidenote, SidenoteReference} from '../components/sidenote';
+import {Footnotes} from '../components/footnotes';
 
 export const MainExampleComponent = () => {
   return (
@@ -595,9 +596,9 @@ export const MainExampleComponent = () => {
             <Link href="https://prismjs.com/download.html">here</Link>.
           </Paragraph>
 
-          <div className="footnotes">
+          <Footnotes>
             <Paragraph id="fn1">
-              1. From
+              1. From{' '}
               <Link href="https://www.math.brown.edu/~res/MFS/handout8.pdf">
                 https://www.math.brown.edu/~res/MFS/handout8.pdf
               </Link>
@@ -607,16 +608,16 @@ export const MainExampleComponent = () => {
               </Link>
             </Paragraph>
             <Paragraph id="fn2">
-              2. “Definition.” Merriam-Webster.com Dictionary, Merriam-Webster,
+              2. “Definition.” Merriam-Webster.com Dictionary, Merriam-Webster,{' '}
               <Link href="https://www.merriam-webster.com/dictionary/definition">
                 https://www.merriam-webster.com/dictionary/definition
               </Link>
-              . Accessed 18 May. 2020.
+              . Accessed 18 May. 2020.{' '}
               <Link href="#ref2" title="Jump back to footnote 2 in the text.">
                 ↩
               </Link>
             </Paragraph>
-          </div>
+          </Footnotes>
         </Article>
       </main>
     </LatexContainer>

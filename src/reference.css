@@ -94,7 +94,6 @@ dl dd {
 
 /* Sidenotes */
 
-
 /* sidenote counter */
 .sidenote-number {
   counter-increment: sidenote-counter;
@@ -160,15 +159,4 @@ input.sidenote-toggle {
     margin-right: -25vw;
     width: 16vw;
   }
-}
-
-/* Make footnote text smaller and left align it (looks bad with long URLs) */
-.footnotes p {
-  text-align: left;
-  line-height: 1.5;
-  font-size: 85%;
-  margin-bottom: 0.4rem;
-}
-.footnotes {
-  border-top: 1px solid hsl(0, 0%, 39%);
 }

@@ -6,7 +6,7 @@ export const LatexDefaultFonts = createGlobalStyle`
   font-style: normal;
   font-weight: normal;
   font-display: swap;
-  src: url('/fonts/LM-regular.woff2') format('woff2'),
+  src: url('./fonts/LM-regular.woff2') format('woff2'),
     url('./fonts/LM-regular.woff') format('woff'),
     url('./fonts/LM-regular.ttf') format('truetype');
   }
