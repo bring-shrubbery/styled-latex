@@ -1,5 +1,7 @@
 # Styled Latex Components
 
+> Archiving, because nobody should use styled-components.
+
 ## Description
 
 This repo provides a set of [styled-components]() that can be used to compose a [React.js]() document that looks like [Latex]() document. These components are almost completely separate from each other, so you can put just some of them into your project.
